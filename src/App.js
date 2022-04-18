@@ -1,23 +1,20 @@
-import logo from './logo.svg';
 import './App.css';
+import Form from './components/Form';
+import ItemList from './components/ItemList';
+import Details from './components/Details';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <header>Redux Practice</header>
+      <h1>Todo Lists</h1>
+      <div className='card'>
+        <div className='card-body'>
+          <Form/>
+          <ItemList/>
+          <Details/>
+        </div>
+      </div>
     </div>
   );
 }
