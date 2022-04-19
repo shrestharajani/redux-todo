@@ -7,7 +7,7 @@ function App() {
   return (
     <div className="App">
       <header>Redux Practice</header>
-      <h1>Todo Lists</h1>
+      <h1 style={{textAlign:'center'}}>Todo Lists</h1>
       <div className='card'>
         <div className='card-body'>
           <Form/>

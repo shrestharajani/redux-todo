@@ -1,14 +1,19 @@
 import React, { useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { addTodo } from '../redux/actions/action'
 
 export default function Form() {
+    const dispatch = useDispatch()
+
     const [value, setValue] = useState('')
 
     const changeItems = (event) => {
         setValue(event.target.value)
     }
 
-    const addItems = () => {
-        // setAddedItem(value)
+    const addItems = (event) => {
+        event.preventDefault()
+        dispatch(addTodo(value))
         setValue('')
     }
 

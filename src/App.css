@@ -1,9 +1,9 @@
 body {
-  text-align: center;
   background-color: lightgrey;
 }
 
 header {
+  text-align: center;
   font-size: 40px;
   padding: 10px;
   height: 8vh;
@@ -19,8 +19,6 @@ header {
 }
 
 .card-body {
-  /* padding-top: 2rem; */
-  text-align: center;
   box-shadow: 5px 3px 10px 2px grey;
   height: 70vh;
   width: 40%;
@@ -28,7 +26,7 @@ header {
   background-color: white;
 }
 
-input {
+.form input {
   border-radius: 10px 10px 0 0;
   border: 0;
   width: 77%;
@@ -42,6 +40,7 @@ input:focus {
 }
 
 .form {
+  text-align: center;
   border-bottom: 2px solid rgb(167, 165, 165, 0.4);
 }
 
@@ -53,9 +52,22 @@ input:focus {
 }
 
 .details {
+  text-align: center;
   border-top: 2px solid rgb(167, 165, 165, 0.4);
   top: 30rem;
   position: sticky;
+}
+
+.items{
+  padding: 15px 0 0 20px;
+}
+
+.items-item{
+  padding-left: 10px;
+}
+
+.marked{
+  text-decoration: line-through;
 }
 
 .details button{
