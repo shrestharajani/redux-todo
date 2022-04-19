@@ -1,9 +1,9 @@
-body{
+body {
   text-align: center;
   background-color: lightgrey;
 }
 
-header{
+header {
   font-size: 40px;
   padding: 10px;
   height: 8vh;
@@ -12,40 +12,70 @@ header{
   background-color: purple;
 }
 
-.card{
- display: flex;
- align-items: center;
- justify-content: center;
+.card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.card-body{
+.card-body {
   /* padding-top: 2rem; */
   text-align: center;
   box-shadow: 5px 3px 10px 2px grey;
   height: 70vh;
-  width:40%;
+  width: 40%;
   border-radius: 10px;
   background-color: white;
 }
-input{
+
+input {
   border-radius: 10px 10px 0 0;
-  border:0;
-  width: 95%;
+  border: 0;
+  width: 77%;
   height: 4vh;
   padding: 13px 5px 13px 10px;
 }
 
-input:focus{
+input:focus {
   border: 0;
   outline: 0;
 }
 
-.form{
-  border-bottom: 2px solid rgb(167, 165, 165,0.4);
+.form {
+  border-bottom: 2px solid rgb(167, 165, 165, 0.4);
 }
 
-.details{
-  border-top: 2px solid rgb(167, 165, 165,0.4);
- top: 15rem;
- position:relative;
+.form button{
+  padding: 10px;
+  border-radius: 7px;
+  background-color: skyblue;
+  border-color: skyblue;
+}
+
+.details {
+  border-top: 2px solid rgb(167, 165, 165, 0.4);
+  top: 30rem;
+  position: sticky;
+}
+
+.details button{
+  border-radius: 7px;
+  padding: 10px;
+}
+
+.all-button{
+ margin-right: 10px;
+}
+
+.complete-button{
+  margin-right: 10px;
+  background-color: green;
+  border-color: green;
+  color: white;
+}
+
+.non-complete-button{
+  background-color: red;
+  border-color: red;
+  color: white;
 }
