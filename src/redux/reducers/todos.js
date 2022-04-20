@@ -23,9 +23,15 @@ const todos = (state = initialState,action)=> {
       }  
       
       case 'COMPLETE_TODO':{
-        const todos = state.todos.filter(obj => obj.completed === true)
+        const todos = state.todos.filter(obj => obj.completed)
         return {todos}
       }  
+
+      case 'DELETE_TODO':{
+        const {id} = action.payload
+        const todos = state.todos.filter(obj => obj.id !== id)
+        return {todos}
+      }
 
       default:
           return state

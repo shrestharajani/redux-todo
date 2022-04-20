@@ -6,11 +6,11 @@ import Todos from './Todos'
 export default function ItemList() {
     const { todos, filter } = useSelector(state => state)
     const filterItem = actionFilter(todos, filter)
-    console.log(filterItem)
 
     useEffect(() => {
         localStorage.setItem("Items", JSON.stringify(filterItem))
     }, [filterItem])
+    const item = localStorage.getItem('Items');
 
     return (
         <div>

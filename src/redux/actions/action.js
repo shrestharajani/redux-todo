@@ -23,3 +23,10 @@ export const defineFilter = filter =>{
         payload: {filter}
     })
 }
+
+export const deleteTodo = id =>{
+    return({
+        type: 'DELETE_TODO',
+        payload : {id}
+    })
+}
