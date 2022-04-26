@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { useSelector } from 'react-redux'
 import { actionFilter } from '../redux/actions/actionFilter'
 import Todos from './Todos'
@@ -6,11 +6,6 @@ import Todos from './Todos'
 export default function ItemList() {
     const { todos, filter } = useSelector(state => state)
     const filterItem = actionFilter(todos, filter)
-
-    useEffect(() => {
-        localStorage.setItem("Items", JSON.stringify(filterItem))
-    }, [filterItem])
-    const item = localStorage.getItem('Items');
 
     return (
         <div>

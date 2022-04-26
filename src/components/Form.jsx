@@ -1,20 +1,20 @@
-import React, { useState } from 'react'
-import { useDispatch } from 'react-redux'
+import React from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { addTodo } from '../redux/actions/action'
+import { addText } from '../redux/actions/action'
 
 export default function Form() {
+    const { todos } = useSelector(state => state)
+    console.log("sjbdsa", todos)
     const dispatch = useDispatch()
 
-    const [value, setValue] = useState('')
-
     const changeItems = (event) => {
-        setValue(event.target.value)
+        dispatch(addText(event.target.value))
     }
 
     const addItems = (event) => {
         event.preventDefault()
-        dispatch(addTodo(value))
-        setValue('')
+        dispatch(addTodo(todos.text))
     }
 
     return (
@@ -22,11 +22,11 @@ export default function Form() {
             <div className='form'>
                 <input
                     type='text'
-                    value={value}
+                    value={todos.text}
                     placeholder='Enter the item'
                     onChange={changeItems} />
                 <button
-                    disabled={!value}
+                    disabled={!todos.text}
                     className='add-button'
                     onClick={addItems}>
                     Add Items

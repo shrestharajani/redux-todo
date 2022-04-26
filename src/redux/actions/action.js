@@ -1,5 +1,12 @@
 let id = 0
 
+export const addText = value =>{
+    return{
+        type: 'ADD_TEXT',
+        payload : {value}
+    }
+}
+
 export const addTodo = content=>{
     return({
         type: 'ADD_TODO',
@@ -27,6 +34,13 @@ export const defineFilter = filter =>{
 export const deleteTodo = id =>{
     return({
         type: 'DELETE_TODO',
+        payload : {id}
+    })
+}
+
+export const editTodo = id =>{
+    return({
+        type: 'EDIT_TODO',
         payload : {id}
     })
 }

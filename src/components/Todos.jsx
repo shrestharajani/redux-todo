@@ -2,6 +2,7 @@ import React from 'react'
 import { useDispatch } from 'react-redux';
 import { checkTodo } from '../redux/actions/action';
 import { deleteTodo } from '../redux/actions/action';
+import { editTodo } from '../redux/actions/action';
 
 export default function Todos({ todo }) {
     const dispatch = useDispatch()
@@ -12,6 +13,11 @@ export default function Todos({ todo }) {
             <div className='item-data'>{todo.completed ?
                 <span className='items-item marked'>{todo.content}</span> :
                 <span className='items-item'>{todo.content}</span>}</div>
+
+            <div className="edit" onClick={() => { dispatch(editTodo(todo.id)) }}>
+                <i className='fa fa-edit' />
+            </div>
+
             <div className="delete" onClick={() => { dispatch(deleteTodo(todo.id)) }}>
                 <i className='fa fa-trash' />
             </div>
