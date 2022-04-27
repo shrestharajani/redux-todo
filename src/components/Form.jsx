@@ -2,10 +2,10 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { addTodo } from '../redux/actions/action'
 import { addText } from '../redux/actions/action'
+import { editAddTodo } from '../redux/actions/action'
 
 export default function Form() {
-    const { todos } = useSelector(state => state)
-    console.log("sjbdsa", todos)
+    const { todos } = useSelector(state => state);
     const dispatch = useDispatch()
 
     const changeItems = (event) => {
@@ -14,7 +14,9 @@ export default function Form() {
 
     const addItems = (event) => {
         event.preventDefault()
-        dispatch(addTodo(todos.text))
+        todos.selected ?
+            dispatch(editAddTodo(todos.selected, todos.text)) :
+            dispatch(addTodo(todos.text));
     }
 
     return (
@@ -29,7 +31,7 @@ export default function Form() {
                     disabled={!todos.text}
                     className='add-button'
                     onClick={addItems}>
-                    Add Items
+                    {todos.selected ? "Edit Items" : "Add Items"}
                 </button>
             </div>
         </>

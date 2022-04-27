@@ -3,7 +3,9 @@ let id = 0
 export const addText = value =>{
     return{
         type: 'ADD_TEXT',
-        payload : {value}
+        payload : {
+            value
+        }
     }
 }
 
@@ -44,3 +46,12 @@ export const editTodo = id =>{
         payload : {id}
     })
 }
+
+export const editAddTodo = (id,content) => {
+    return({
+        type: 'EDIT_ADD_TODO',
+        payload : {
+            id,content
+        }
+    })
+  }
