@@ -1,6 +1,5 @@
 import { ConstantFilter } from "../../components/ConstantFilter";
 
-
 export const actionFilter = (store,filters) => {
   switch(filters){
         case ConstantFilter[1].name:

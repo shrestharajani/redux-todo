@@ -1,7 +1,8 @@
 const initialState = {
     todos:[],
     text:"",
-    selected: undefined
+    selected: undefined,
+    pageNumber : 0
 }
 
 const todos = (state = initialState,action)=> {
@@ -74,6 +75,18 @@ const todos = (state = initialState,action)=> {
           todos,
           text: "",
           selected: undefined,   
+        }
+      }
+
+      case 'SET_PAGE_NUMBER':{
+        const {page_num} = action.payload
+        return {
+          todos:[
+            ...state.todos,
+          ],
+          text: "",
+          selected:undefined,
+          pageNumber: page_num
         }
       }
 

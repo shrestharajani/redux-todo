@@ -55,3 +55,12 @@ export const editAddTodo = (id,content) => {
         }
     })
   }
+
+  export const setCurrentPage = (page_num) => {
+    return({
+        type: 'SET_PAGE_NUMBER',
+        payload : {
+            page_num
+        }
+    })
+  }

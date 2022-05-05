@@ -21,19 +21,20 @@ export default function Form() {
 
     return (
         <>
-            <div className='form'>
+            <form className='form' onSubmit={addItems}>
                 <input
                     type='text'
                     value={todos.text}
                     placeholder='Enter the item'
-                    onChange={changeItems} />
+                    onChange={changeItems}
+                />
                 <button
                     disabled={!todos.text}
                     className='add-button'
                     onClick={addItems}>
                     {todos.selected ? "Edit Items" : "Add Items"}
                 </button>
-            </div>
+            </form>
         </>
     )
 }
