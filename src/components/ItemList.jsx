@@ -1,15 +1,14 @@
-import React, { useState } from 'react'
+import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { actionFilter } from '../redux/actions/actionFilter'
 import Todos from './Todos'
 import ReactPaginate from 'react-paginate';
-import { setCurrentPage } from '../redux/actions/action';
+import { setCurrentPage, setPageCount } from '../redux/actions/action';
 
 export default function ItemList() {
     const dispatch = useDispatch()
     const { todos, filter } = useSelector(state => state)
     const filterItem = actionFilter(todos, filter)
-    console.log(filterItem, "dsfds")
 
     // using react only
     // const [pageNumber, setPageNumber] = useState(0)
@@ -24,14 +23,16 @@ export default function ItemList() {
 
     const itemPerPage = 5
 
-    const itemVisitedInEachPage = itemPerPage
-    const numberOfPage = Math.ceil(filterItem.length / itemPerPage)
+    useEffect(() => {
+        const numberOfPage = Math.ceil(filterItem.length / itemPerPage)
+        dispatch(setPageCount(numberOfPage))
+    }, [dispatch, filterItem.length, todos.pageNumber])
 
     const handleChange = (e) => {
-        dispatch(setCurrentPage(e.selected))
+        dispatch(setCurrentPage(e.selected * itemPerPage))
     }
 
-    const displayItem = filterItem.slice(itemVisitedInEachPage, itemVisitedInEachPage + itemPerPage)
+    const displayItem = filterItem.slice(todos.pageNumber, todos.pageNumber + itemPerPage)
         .map((todo, index) => (
             <Todos
                 key={index}
@@ -44,7 +45,7 @@ export default function ItemList() {
                 <div style={{ textAlign: 'center', paddingTop: '10px' }}> No todos yet!!</div>}
 
             <ReactPaginate
-                pageCount={numberOfPage}
+                pageCount={todos.pageCount}
                 onPageChange={handleChange}
                 containerClassName='pagination-div'
                 previousClassName='previous-button'

@@ -56,11 +56,21 @@ export const editAddTodo = (id,content) => {
     })
   }
 
-  export const setCurrentPage = (page_num) => {
+export const setCurrentPage = (page_num) => {
     return({
         type: 'SET_PAGE_NUMBER',
         payload : {
             page_num
         }
     })
-  }
+}
+
+export const setPageCount = (num_of_page) => {
+    return({
+        type: 'SET_PAGE_COUNT',
+        payload : {
+            num_of_page
+        }
+    })
+}
+
